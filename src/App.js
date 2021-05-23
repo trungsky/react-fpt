@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import Routes from "./routes";
+import "./App.css";
+import ProductAdd from "./components/ProductAdd";
+import ProductApi from "./api/ProductApi";
 
 function App() {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        let { data: products } = await ProductApi.getAll();
+        setProducts(products);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  const removeItem = async (id) => {
+    const itemRemove = products.find((p) => p.id === id);
+    const newProducts = products.filter((products) => products.id !== id);
+    await ProductApi.remove(itemRemove.id);
+    setProducts(newProducts);
+    console.log(`Xóa thành công thằng "${itemRemove.name}"`);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container mx-auto">
+      <ProductAdd products={products} onAdd={(props) => setProducts(props)}/>
+      <Routes products={products} onDelete={removeItem} />
     </div>
   );
 }
