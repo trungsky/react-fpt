@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const Nav = () => {
+const NavAdmin = () => {
   const [open, setOpen] = React.useState(false);
   const [flyer, setFlyer] = React.useState(false);
   const [flyerTwo, setFlyerTwo] = React.useState(false);
@@ -507,4 +507,4 @@ const Nav = () => {
     </div>
   );
 };
-export default Nav;
+export default NavAdmin;

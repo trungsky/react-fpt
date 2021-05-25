@@ -3,6 +3,7 @@ import Routes from "./routes";
 import "./App.css";
 import ProductAdd from "./components/ProductAdd";
 import ProductApi from "./api/ProductApi";
+import Footer from "./components/Footer";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -27,8 +28,9 @@ function App() {
   };
   return (
     <div className="container mx-auto">
-      <ProductAdd products={products} onAdd={(props) => setProducts(props)}/>
+      {/* <ProductAdd products={products} onAdd={(props) => setProducts(props)} /> */}
       <Routes products={products} onDelete={removeItem} />
+      <Footer />
     </div>
   );
 }
