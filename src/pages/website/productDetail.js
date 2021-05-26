@@ -3,20 +3,13 @@ import ProductApi from "../../api/ProductApi";
 import { useParams } from "react-router-dom";
 
 const ProductDetail = () => {
-  const { idProduct } = useParams();
   const [products, setProducts] = useState([]);
-  useEffect(() => {
-    
-    const fetchData = async () => {
-      try {
-        const { data: product } = await ProductApi.get(idProduct);
-        setProducts(product);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  });
+  const { idProduct } = useParams();
+
+  useEffect(async () => {
+    const { data: product } = await ProductApi.get(idProduct);
+    setProducts(product);
+  }, []);
 
   return (
     <div>

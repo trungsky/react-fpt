@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const ProductList = (props) => {
+const AdminProductList = (props) => {
   const onHandleRemove = (id) => {
     props.onDelete(id);
   };
@@ -9,7 +9,12 @@ const ProductList = (props) => {
   return (
     <div>
       <div className="flex flex-col">
-      
+        <NavLink
+          to="/admin/products/add"
+          className="text-center px-4 bg-green-400 rounded m-4 p-2 float-right"
+        >
+          Thêm sản phẩm
+        </NavLink>
         <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
             <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -26,7 +31,19 @@ const ProductList = (props) => {
                       scope="col"
                       className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
-                      Title
+                      Email
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Price
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Quantity
                     </th>
                     <th
                       scope="col"
@@ -38,28 +55,34 @@ const ProductList = (props) => {
                       scope="col"
                       className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                     >
-                      Role
+                      Category
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+                    >
+                      Action
                     </th>
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  {props.products.map((product) => (
-                    <tr key={product.email}>
+                  {props.products.map((product, index) => (
+                    <tr key={index}>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center">
                           <div className="flex-shrink-0 h-10 w-10">
-                            <img
+                          <NavLink to={`products/${product.id}`}>
+                              <img
                               className="h-10 w-10 rounded-full"
                               src={product.photo}
                               alt=""
-                            />
+                            /></NavLink>
                           </div>
                           <div className="ml-4">
                             <div className="text-sm font-medium text-gray-900">
-                              {product.name}
-                            </div>
-                            <div className="text-sm text-gray-500">
-                              {product.email}
+                              <NavLink to={`products/${product.id}`}>
+                                {product.name}
+                              </NavLink>
                             </div>
                           </div>
                         </div>
@@ -68,18 +91,32 @@ const ProductList = (props) => {
                         <div className="text-sm text-gray-900">
                           {product.email}
                         </div>
-                        <div className="text-sm text-gray-500">
-                          {product.email}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="text-sm text-gray-900">
+                          {product.price}
+                        </div>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="text-sm text-gray-900">
+                          {product.quantity}
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                          Active
+                          {product.status}
                         </span>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                        {product.email}
+                        {product.category}
                       </td>
+
+                      <button
+                          className="px-4 bg-red-400 rounded ml-5 mt-4 p-2"
+                          onClick={() => onHandleRemove(product.id)}
+                        >
+                          Delete
+                        </button>
                     </tr>
                   ))}
                 </tbody>
@@ -109,4 +146,4 @@ const ProductList = (props) => {
     </div>
   );
 };
-export default ProductList;
+export default AdminProductList;
