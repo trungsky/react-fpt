@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ProductApi from "../api/ProductApi";
+import ProductList from "./ProductList";
 const ProductAdd = (props) => {
   const [inputValue, setInputValue] = useState("");
   const onHandleSubmit = async (e) => {
@@ -12,14 +13,21 @@ const ProductAdd = (props) => {
   const onHandleChange = (e) => {
     setInputValue(e.target.value);
   };
-
+  
   return (
     <div>
       <form onSubmit={onHandleSubmit}>
-        <input type="text" value={inputValue} onChange={onHandleChange} placeholder="Nhập tên sản phẩm"/>
+        <input
+          type="text"
+          value={inputValue}
+          onChange={onHandleChange}
+          placeholder="Nhập tên sản phẩm"
+        />
         <button type="submit">Add</button>
       </form>
+      <ProductList {...props}/>
     </div>
+    
   );
 };
 

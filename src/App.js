@@ -29,7 +29,7 @@ function App() {
   return (
     <div className="container mx-auto">
       {/* <ProductAdd products={products} onAdd={(props) => setProducts(props)} /> */}
-      <Routes products={products} onDelete={removeItem} />
+      <Routes products={products} onDelete={removeItem} onAdd={(props) => setProducts(props)} />
       <Footer />
     </div>
   );

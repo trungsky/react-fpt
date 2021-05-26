@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ProductApi from "../api/ProductApi";
+import ProductApi from "../../api/ProductApi";
 import { useParams } from "react-router-dom";
 
 const ProductDetail = () => {

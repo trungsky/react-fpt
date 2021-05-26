@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import ProductApi from "../api/ProductApi";
-import ProductList from "../components/ProductList";
+import ProductApi from "../../api/ProductApi";
+import ProductList from "../../components/ProductList";
 
 const ProductPage = (props) => {
   const [products, setProducts] = useState([]);
