@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import React from "react";
 import ProductEdit from "../../components/ProductEdit";
 
 const EditProductPage = (props) => {
   return (
     <div>
-      <ProductEdit products={props.products} onAdd={props.onAdd} />
+      <ProductEdit props={props.products} />
     </div>
   );
 };

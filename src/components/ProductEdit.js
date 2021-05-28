@@ -29,7 +29,7 @@ const ProductEdit = (props) => {
     }
   };
 
-  console.log(props.products);
+  console.log('alo');
 
   return (
     <div>
