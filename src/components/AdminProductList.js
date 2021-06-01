@@ -66,17 +66,18 @@ const AdminProductList = (props) => {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  {props.products.map((product, index) => (
+                  {props.products.length !== 0 ? props.products.map((product, index) => (
                     <tr key={index}>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center">
                           <div className="flex-shrink-0 h-10 w-10">
-                          <NavLink to={`products/${product.id}`}>
+                            <NavLink to={`products/${product.id}`}>
                               <img
-                              className="h-10 w-10 rounded-full"
-                              src={product.photo}
-                              alt=""
-                            /></NavLink>
+                                className="h-10 w-10 rounded-full"
+                                src={product.photo}
+                                alt=""
+                              />
+                            </NavLink>
                           </div>
                           <div className="ml-4">
                             <div className="text-sm font-medium text-gray-900">
@@ -112,13 +113,13 @@ const AdminProductList = (props) => {
                       </td>
 
                       <button
-                          className="px-4 bg-red-400 rounded ml-5 mt-4 p-2"
-                          onClick={() => onHandleRemove(product.id)}
-                        >
-                          Delete
-                        </button>
+                        className="px-4 bg-red-400 rounded ml-5 mt-4 p-2"
+                        onClick={() => onHandleRemove(product.id)}
+                      >
+                        Delete
+                      </button>
                     </tr>
-                  ))}
+                  )) : <span className="px-4 text-red-400">Không có sản phẩm nào ở đây, vui lòng thêm sản phẩm bằng nút ở trên</span>}
                 </tbody>
               </table>
             </div>

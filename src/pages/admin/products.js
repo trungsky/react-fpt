@@ -1,7 +1,6 @@
 import React from "react";
 import AdminProductList from "../../components/AdminProductList";
 const ProductPage = (props) => {
-
   const onHandleRemove = (id) => {
     props.onDelete(id);
   };

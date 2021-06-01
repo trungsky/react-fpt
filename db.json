@@ -1,35 +1,14 @@
 {
   "products": [
     {
-      "id": "1",
       "name": "1",
-      "photo": "",
-      "email": "trungsky01@gmail.com",
-      "price": "",
-      "category": "",
-      "quantity": "",
-      "description": "",
-      "status": ""
-    },
-    {
-      "name": "321312313",
-      "price": "",
-      "category": "",
-      "quantity": "",
-      "description": "",
-      "status": "",
-      "photo": "",
-      "id": "WSdaqFu"
-    },
-    {
-      "name": "31",
-      "price": "",
-      "category": "",
-      "quantity": "",
-      "description": "",
-      "status": "",
-      "photo": "",
-      "id": "2JoDXL1"
+      "price": "2",
+      "category": "3",
+      "quantity": "4",
+      "description": "5",
+      "status": "6",
+      "photo": "http://picsum.photos/120/200",
+      "id": 1
     }
   ],
   "category": [

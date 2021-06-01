@@ -10,18 +10,21 @@ import toastr from "toastr";
 
 const ProductEdit = (props) => {
   const { idProduct } = useParams();
+  const [product, setProduct] = useState([]);
   const history = useHistory();
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm();
+
 
   const onSubmit = async (data) => {
     try {
       await ProductApi.update(idProduct, data);
-      const { data: ditmecuocdoi } = await ProductApi.getAll();
-      props.onAdd([...ditmecuocdoi]);
+      const { data: products } = await ProductApi.getAll();
+      props.onAdd([...products]);
       toastr.success(`Edit thành công`);
       history.push("/admin/products");
     } catch (error) {
@@ -29,7 +32,14 @@ const ProductEdit = (props) => {
     }
   };
 
-  console.log('alo');
+  useEffect(() => {
+    const getProduct = async () => {
+      const { data: product } = await ProductApi.get(idProduct);
+      setProduct(product);
+    };
+
+    getProduct();
+  }, []);
 
   return (
     <div>
@@ -45,7 +55,7 @@ const ProductEdit = (props) => {
             <div className="mb-5">
               <label className="block mb-2 font-bold text-gray-600">Name</label>
               <input
-                {...register("name")}
+                {...register("name")} {...setValue("name", product.name)} defaultValue={product.name}
                 className="border border-gray-300 shadow p-3 w-full rounded mb-"
               />
             </div>
@@ -55,7 +65,7 @@ const ProductEdit = (props) => {
                 Price
               </label>
               <input
-                {...register("price")}
+                {...register("price")} {...setValue("price", product.price)} defaultValue={product.price}
                 className="border border-gray-300 shadow p-3 w-full rounded mb-"
               />
             </div>
@@ -65,7 +75,7 @@ const ProductEdit = (props) => {
                 Category
               </label>
               <input
-                {...register("category")}
+                {...register("category")} {...setValue("category", product.category)} defaultValue={product.category}
                 className="border border-gray-300 shadow p-3 w-full rounded mb-"
               />
             </div>
@@ -75,7 +85,7 @@ const ProductEdit = (props) => {
                 Quantity
               </label>
               <input
-                {...register("quantity")}
+                {...register("quantity")} {...setValue("quantity", product.quantity)} defaultValue={product.quantity}
                 className="border border-gray-300 shadow p-3 w-full rounded mb-"
               />
             </div>
@@ -85,7 +95,7 @@ const ProductEdit = (props) => {
                 Description
               </label>
               <input
-                {...register("description")}
+                {...register("description")} {...setValue("description", product.description)} defaultValue={product.description}
                 className="border border-gray-300 shadow p-3 w-full rounded mb-"
               />
             </div>
@@ -95,7 +105,7 @@ const ProductEdit = (props) => {
                 Status
               </label>
               <input
-                {...register("status")}
+                {...register("status")} {...setValue("status", product.status)} defaultValue={product.status}
                 className="border border-gray-300 shadow p-3 w-full rounded mb-"
               />
             </div>
@@ -105,7 +115,7 @@ const ProductEdit = (props) => {
                 Photo
               </label>
               <input
-                {...register("photo")}
+                {...register("photo")} {...setValue("photo", product.photo)} defaultValue={product.photo}
                 className="border border-gray-300 shadow p-3 w-full rounded mb-"
               />
             </div>
