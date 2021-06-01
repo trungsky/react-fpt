@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomePage from "./pages/website/home";
 import AboutPage from "./pages/website/about";
 import ProductPage from "./pages/admin/products";
+import CategoryPage from "./pages/admin/category";
 import ProductDetail from "./pages/website/productDetail";
 import NotFoundPage from "./pages/404";
 import LayoutAdmin from "./layouts/admin";
@@ -11,6 +12,8 @@ import LayoutWebsite from "./layouts/website";
 import AdminProductList from "./components/AdminProductList";
 import AddProductPage from './pages/admin/addproducts'
 import EditProductPage from "./pages/admin/editproducts";
+import CategoryAdd from "./components/CategoryAdd"
+import EditCategoryPage from "./pages/admin/editcategory"
 const Routes = (props) => {
   return (
     <Router>
@@ -30,6 +33,18 @@ const Routes = (props) => {
               <Route exact path="/admin/products/:idProduct">
                 <EditProductPage {...props} />
               </Route>
+
+              <Route exact path="/admin/category">
+                <CategoryPage {...props} />
+              </Route>
+              <Route exact path="/admin/category/add">
+                <CategoryAdd {...props} />
+              </Route>
+
+              <Route exact path="/admin/category/:idCategory">
+                <EditCategoryPage {...props} />
+              </Route>
+
             </Switch>
           </LayoutAdmin>
         </Route>

@@ -6,9 +6,12 @@ const ProductDetail = () => {
   const [products, setProducts] = useState([]);
   const { idProduct } = useParams();
 
-  useEffect(async () => {
-    const { data: product } = await ProductApi.get(idProduct);
-    setProducts(product);
+  useEffect(() => {
+    const getProduct = async () => {
+      const { data: product } = await ProductApi.get(idProduct);
+      setProducts(product);
+    };
+    getProduct();
   }, []);
 
   return (

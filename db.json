@@ -1,27 +1,27 @@
 {
   "products": [
     {
-      "name": "1",
-      "price": "2",
+      "name": "Áo thung con đại bàng khá bảnh vip",
+      "price": "299000",
       "category": "3",
-      "quantity": "4",
-      "description": "5",
-      "status": "6",
-      "photo": "http://picsum.photos/120/200",
+      "quantity": "100",
+      "description": "desc",
+      "status": "false",
+      "photo": "http://picsum.photos/40/40",
       "id": 1
     }
   ],
   "category": [
     {
-      "name": "Jackets",
+      "name": "Apple",
       "id": 1
     },
     {
-      "name": "Hoodie",
+      "name": "Samsung",
       "id": 2
     },
     {
-      "name": "BOTTOMS",
+      "name": "Meo meo",
       "id": 3
     }
   ],

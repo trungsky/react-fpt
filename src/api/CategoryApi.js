@@ -1,22 +1,17 @@
 import { axiosClient } from "./axiosClient";
-import { getCookie } from "../utils";
 
 const CategoryApi = {
   getAll() {
-    const url = `/categories`;
+    const url = `/category`;
     return axiosClient.get(url);
   },
   get(id) {
     const url = `/category/${id}`;
     return axiosClient.get(url);
   },
-  add(id, category) {
-    const url = `/category/create/${id}`;
-    return axiosClient.post(url, category, {
-      headers: {
-        Authorization: "Bearer " + getCookie("t"),
-      },
-    });
+  add(category) {
+    const url = `/category`;
+    return axiosClient.post(url, category);
   },
   remove(id) {
     const url = `/category/${id}`;

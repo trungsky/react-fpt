@@ -10,6 +10,7 @@ const ProductPage = (props) => {
       <AdminProductList
         products={props.products}
         onDelete={(props) => onHandleRemove(props)}
+        category={props.category}
       />
     </div>
   );

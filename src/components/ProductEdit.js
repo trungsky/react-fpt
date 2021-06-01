@@ -55,7 +55,9 @@ const ProductEdit = (props) => {
             <div className="mb-5">
               <label className="block mb-2 font-bold text-gray-600">Name</label>
               <input
-                {...register("name")} {...setValue("name", product.name)} defaultValue={product.name}
+                {...register("name")}
+                {...setValue("name", product.name)}
+                defaultValue={product.name}
                 className="border border-gray-300 shadow p-3 w-full rounded mb-"
               />
             </div>
@@ -65,7 +67,9 @@ const ProductEdit = (props) => {
                 Price
               </label>
               <input
-                {...register("price")} {...setValue("price", product.price)} defaultValue={product.price}
+                {...register("price")}
+                {...setValue("price", product.price)}
+                defaultValue={product.price}
                 className="border border-gray-300 shadow p-3 w-full rounded mb-"
               />
             </div>
@@ -74,10 +78,14 @@ const ProductEdit = (props) => {
               <label className="block mb-2 font-bold text-gray-600">
                 Category
               </label>
-              <input
-                {...register("category")} {...setValue("category", product.category)} defaultValue={product.category}
-                className="border border-gray-300 shadow p-3 w-full rounded mb-"
-              />
+              <select
+                className="border border-gray-300 shadow p-3 w-full rounded"
+                {...register("category", {required: true})} {...setValue("category", product.category)} defaultValue={product.category}
+              >
+                {props.category.map((cate) => {
+                  return <option value={cate.id}>{cate.name}</option>
+                })}
+              </select>
             </div>
 
             <div className="mb-5">
@@ -85,7 +93,9 @@ const ProductEdit = (props) => {
                 Quantity
               </label>
               <input
-                {...register("quantity")} {...setValue("quantity", product.quantity)} defaultValue={product.quantity}
+                {...register("quantity")}
+                {...setValue("quantity", product.quantity)}
+                defaultValue={product.quantity}
                 className="border border-gray-300 shadow p-3 w-full rounded mb-"
               />
             </div>
@@ -95,7 +105,9 @@ const ProductEdit = (props) => {
                 Description
               </label>
               <input
-                {...register("description")} {...setValue("description", product.description)} defaultValue={product.description}
+                {...register("description")}
+                {...setValue("description", product.description)}
+                defaultValue={product.description}
                 className="border border-gray-300 shadow p-3 w-full rounded mb-"
               />
             </div>
@@ -104,10 +116,21 @@ const ProductEdit = (props) => {
               <label className="block mb-2 font-bold text-gray-600">
                 Status
               </label>
-              <input
-                {...register("status")} {...setValue("status", product.status)} defaultValue={product.status}
-                className="border border-gray-300 shadow p-3 w-full rounded mb-"
-              />
+              {/* <input
+                {...register("status")}
+                {...setValue("status", product.status)}
+                defaultValue={product.status}
+                className="border border-gray-300 shadow p-3 w-full rounded"
+              /> */}
+
+              <select
+                className="border border-gray-300 shadow p-3 w-full rounded"
+                {...register("status", {required: true})} {...setValue("status", product.status)} defaultValue={product.status}
+              >
+                <option value="">Choose status</option>
+                <option value="false">False</option>
+                <option value="true">True</option>
+              </select>
             </div>
 
             <div className="mb-5">
@@ -115,7 +138,9 @@ const ProductEdit = (props) => {
                 Photo
               </label>
               <input
-                {...register("photo")} {...setValue("photo", product.photo)} defaultValue={product.photo}
+                {...register("photo")}
+                {...setValue("photo", product.photo)}
+                defaultValue={product.photo}
                 className="border border-gray-300 shadow p-3 w-full rounded mb-"
               />
             </div>

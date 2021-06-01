@@ -4,7 +4,7 @@ import ProductEdit from "../../components/ProductEdit";
 const EditProductPage = (props) => {
   return (
     <div>
-      <ProductEdit products={props.products} onAdd={props.onAdd}/>
+      <ProductEdit props={props.products} onAdd={props.onAdd} category={props.category}/>
     </div>
   );
 };
