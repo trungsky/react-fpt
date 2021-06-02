@@ -1,6 +1,6 @@
 import React from "react";
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
 import HomePage from "./pages/website/home";
 import AboutPage from "./pages/website/about";
 import ProductPage from "./pages/admin/products";
@@ -10,10 +10,13 @@ import NotFoundPage from "./pages/404";
 import LayoutAdmin from "./layouts/admin";
 import LayoutWebsite from "./layouts/website";
 import AdminProductList from "./components/AdminProductList";
-import AddProductPage from './pages/admin/addproducts'
+import AddProductPage from "./pages/admin/addproducts";
 import EditProductPage from "./pages/admin/editproducts";
-import CategoryAdd from "./components/CategoryAdd"
-import EditCategoryPage from "./pages/admin/editcategory"
+import CategoryAdd from "./components/CategoryAdd";
+import EditCategoryPage from "./pages/admin/editcategory";
+import LoginPage from "./pages/user/login";
+import RegisterPage from "./pages/user/register";
+import UserPage from "./pages/user/user";
 const Routes = (props) => {
   return (
     <Router>
@@ -44,7 +47,6 @@ const Routes = (props) => {
               <Route exact path="/admin/category/:idCategory">
                 <EditCategoryPage {...props} />
               </Route>
-
             </Switch>
           </LayoutAdmin>
         </Route>
@@ -64,6 +66,19 @@ const Routes = (props) => {
               <Route exact path="/products/:idProduct">
                 <ProductDetail {...props} />
               </Route>
+
+              <Route exact path="/signin">
+                <LoginPage {...props} />
+              </Route>
+
+              <Route exact path="/signup">
+                <RegisterPage {...props} />
+              </Route>
+
+              <Route exact path="/user">
+                <UserPage {...props} />
+              </Route>
+
               <Route path="*">
                 <NotFoundPage />
               </Route>

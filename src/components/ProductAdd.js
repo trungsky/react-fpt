@@ -12,7 +12,6 @@ const ProductAdd = (props) => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
     try {
       const { data: newProducts } = await ProductApi.add(data);
       props.onAdd([...props.products, newProducts]);

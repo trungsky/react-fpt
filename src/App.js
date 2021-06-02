@@ -49,7 +49,7 @@ function App() {
   };
 
   return (
-    <div className="container mx-auto">
+    <div className="container-fluid mx-auto">
       <Routes
         products={products}
         category={category}
