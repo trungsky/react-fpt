@@ -10,7 +10,7 @@ const HomePage = (props) => {
             <div className="lg:w-6/12 lg:p-0 p-7">
               <h1 className="text-4xl font-bold leading-tight mb-5 capitalize">
                 {" "}
-                1 cái hê rô Img đẹp đẹp.{" "}
+                1 cái hê rô séc sừn đẹp đẹp.{" "}
               </h1>
               <p className="text-xl">
                 {" "}
@@ -35,11 +35,6 @@ const HomePage = (props) => {
             <div className="lg:w-5/12 order-2">
               <img
                 src="https://images.unsplash.com/photo-1542435503-956c469947f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80"
-                style={{
-                  transform:
-                    "scale(1) perspective(1040px) rotateY(-11deg) rotateX(2deg) rotate(2deg)",
-                }}
-                alt
                 className="rounded"
               />
             </div>

@@ -11,13 +11,21 @@ const RegisterPage = () => {
 
   const onSubmit = async (data) => {
     try {
-      const { data: newUser } = await UserApi.signUp(data);
-      const {name, email, role} = newUser;
-      localStorage.setItem("register", JSON.stringify({name, email, role}));
-      toastr.success(`Đăng ký thành công`);
-      // history.push("/admin/category");
+      const passwordForm = document.querySelector("#password").value;
+      const passwordForm2 = document.querySelector("#password2").value;
+      if (passwordForm !== passwordForm2) {
+        toastr.error(`Ôi bạn ơi, nhập pass cho chuẩn chuẩn vào`);
+      } else {
+        const { data: newUser } = await UserApi.signUp(data);
+        const { name, email, role } = newUser;
+        localStorage.setItem("register", JSON.stringify({ name, email, role }));
+        toastr.success(`Đăng ký thành công, tự động đăng nhập sau 3s nữa ...`);
+
+        // Thêm cúc ki xong mới redirect => đang làm vỡ mặt
+        // history.push("/user");
+      }
     } catch (error) {
-      toastr.error(`Đã gặp lỗi: ${error.message}`);
+      toastr.error(`${error.response.data.error}`);
     }
   };
 
@@ -67,6 +75,7 @@ const RegisterPage = () => {
                 type="password"
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Password"
+                id="password"
               />
             </div>
             <div>
@@ -78,6 +87,7 @@ const RegisterPage = () => {
                 type="password"
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Retype password"
+                id="password2"
               />
             </div>
           </div>

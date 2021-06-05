@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import toastr from "toastr";
 import UserApi from "../../api/UserApi";
@@ -8,16 +9,25 @@ const LoginPage = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const history = useHistory();
 
   const onSubmit = async (data) => {
     try {
-      const { data: user } = await UserApi.signIn(data);
-      localStorage.setItem("jwt", JSON.stringify(user.token));
-      localStorage.setItem("userlogin", JSON.stringify(user.user))
-      toastr.success(`Login thành công`);
-      // history.push("/admin/category");
+      const emailForm = document.querySelector("#email").value;
+      const passwordForm = document.querySelector("#password").value;
+
+      if (emailForm === "" || passwordForm === "") {
+        toastr.error(`Nhập đủ thông tin vào bạn ơi`);
+      } else {
+        const { data: user } = await UserApi.signIn(data);
+        localStorage.setItem("jwt", JSON.stringify(user.token));
+        localStorage.setItem("userlogin", JSON.stringify(user.user));
+        toastr.success(`Login thành công`);
+        // Thêm cúc ki xong mới redirect => đang làm vỡ mặt
+        history.push("/user");
+      }
     } catch (error) {
-      toastr.error(`Đã gặp lỗi: ${error.message}`);
+      toastr.error(`${error.response.data.error}`);
     }
   };
 
@@ -45,6 +55,7 @@ const LoginPage = () => {
                 {...register("email")}
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Email address"
+                id="email"
               />
             </div>
             <div>
@@ -56,6 +67,7 @@ const LoginPage = () => {
                 type="password"
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                 placeholder="Password"
+                id="password"
               />
             </div>
           </div>

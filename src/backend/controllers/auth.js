@@ -7,7 +7,7 @@ export const signup = (req, res) => {
   user.save((err, user) => {
     if (err) {
       return res.status(400).json({
-        error: "Không thể đăng ký tài khoản",
+        error: "Không thể đăng ký tài khoản, biết sao ko?, là do trùng mail rồi đấy",
       });
     }
     res.json(user);
