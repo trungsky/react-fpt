@@ -7,7 +7,8 @@ export const signup = (req, res) => {
   user.save((err, user) => {
     if (err) {
       return res.status(400).json({
-        error: "Không thể đăng ký tài khoản, biết sao ko?, là do trùng mail rồi đấy",
+        error:
+          "Không thể đăng ký tài khoản, biết sao ko?, là do trùng mail rồi đấy",
       });
     }
     res.json(user);
@@ -66,4 +67,9 @@ export const isAdmin = (req, res, next) => {
     });
   }
   next();
+};
+
+export const test = (req, res, next) => {
+  res.cookie("token", 'jwt.token', { expires: new Date(Date.now() + 9999999) }); //  doan nay, ban ve client token thoi
+  // res.status(200).send({ user: '113', token: 'jwt.token' });
 };

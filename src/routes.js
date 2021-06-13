@@ -1,15 +1,20 @@
 import React from "react";
 
-import { BrowserRouter as Router, Switch, Route, Redirect} from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import HomePage from "./pages/website/home";
 import AboutPage from "./pages/website/about";
-import ProductPage from "./pages/admin/products";
+import AdminProductPage from "./pages/admin/products";
 import CategoryPage from "./pages/admin/category";
 import ProductDetail from "./pages/website/productDetail";
 import NotFoundPage from "./pages/404";
 import LayoutAdmin from "./layouts/admin";
 import LayoutWebsite from "./layouts/website";
-import AdminProductList from "./components/AdminProductList";
+// import AdminProductList from "./components/AdminProductList";
 import AddProductPage from "./pages/admin/addproducts";
 import EditProductPage from "./pages/admin/editproducts";
 import CategoryAdd from "./components/CategoryAdd";
@@ -17,6 +22,12 @@ import EditCategoryPage from "./pages/admin/editcategory";
 import LoginPage from "./pages/user/login";
 import RegisterPage from "./pages/user/register";
 import UserPage from "./pages/user/user";
+import TestPage from "./pages/website/test";
+import ProductPage from "./pages/website/ProductPage";
+import CartPage from "./pages/website/cart";
+import CheckoutPage from "./pages/website/checkout";
+import ConfirmPage from "./pages/website/confirm";
+import ProductByCategory from "./pages/website/productByCategory";
 const Routes = (props) => {
   return (
     <Router>
@@ -28,7 +39,7 @@ const Routes = (props) => {
                 Admin
               </Route>
               <Route exact path="/admin/products">
-                <ProductPage {...props} />
+                <AdminProductPage {...props} />
               </Route>
               <Route exact path="/admin/products/add">
                 <AddProductPage {...props} />
@@ -61,7 +72,7 @@ const Routes = (props) => {
                 <AboutPage />
               </Route>
               <Route exact path="/products">
-                <AdminProductList {...props} />
+                <ProductPage {...props} />
               </Route>
               <Route exact path="/products/:idProduct">
                 <ProductDetail {...props} />
@@ -77,6 +88,25 @@ const Routes = (props) => {
 
               <Route exact path="/user">
                 <UserPage {...props} />
+              </Route>
+
+              <Route exact path="/test">
+                <TestPage {...props} />
+              </Route>
+
+              <Route exact path="/cart">
+                <CartPage {...props} />
+              </Route>
+
+              <Route exact path="/checkout">
+                <CheckoutPage {...props} />
+              </Route>
+              <Route exact path="/thanks">
+                <ConfirmPage {...props} />
+              </Route>
+
+              <Route exact path="/category/:idCategory">
+                <ProductByCategory {...props} />
               </Route>
 
               <Route path="*">

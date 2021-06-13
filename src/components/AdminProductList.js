@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
-
+import { NavLink, Redirect } from "react-router-dom";
+import { isAuthenticated } from "../auth";
 const AdminProductList = (props) => {
   const onHandleRemove = (id) => {
     props.onDelete(id);
   };
+  const user = isAuthenticated();
   return (
     <div>
+      {user === false ? <Redirect to="/" /> : ""}
       <div className="flex flex-col">
         <NavLink
           to="/admin/products/add"

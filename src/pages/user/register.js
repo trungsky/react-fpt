@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useHistory, Link } from "react-router-dom";
 import toastr from "toastr";
 import UserApi from "../../api/UserApi";
 const RegisterPage = () => {
@@ -8,30 +9,36 @@ const RegisterPage = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const [success, setSuccess] = useState(false);
+  const history = useHistory();
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (res) => {
     try {
       const passwordForm = document.querySelector("#password").value;
       const passwordForm2 = document.querySelector("#password2").value;
       if (passwordForm !== passwordForm2) {
         toastr.error(`Ôi bạn ơi, nhập pass cho chuẩn chuẩn vào`);
       } else {
-        const { data: newUser } = await UserApi.signUp(data);
-        const { name, email, role } = newUser;
-        localStorage.setItem("register", JSON.stringify({ name, email, role }));
+        await UserApi.signUp(res);
         toastr.success(`Đăng ký thành công, tự động đăng nhập sau 3s nữa ...`);
-
-        // Thêm cúc ki xong mới redirect => đang làm vỡ mặt
+        setSuccess(true);
         // history.push("/user");
       }
     } catch (error) {
-      toastr.error(`${error.response.data.error}`);
+      toastr.error(`${error.response.res.error}`);
+    }
+  };
+  const showSuccess = () => {
+    if (success) {
+      console.log("Ok");
+      return <div>Thanh cong. Click vao day sang login <Link to="/signin">Login now</Link></div>
     }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
+        {showSuccess()}
         <div>
           <img
             className="mx-auto h-12 w-auto"

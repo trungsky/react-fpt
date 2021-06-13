@@ -1,8 +1,8 @@
 import React from "react";
 import { Link, Redirect } from "react-router-dom";
+import { isAuthenticated } from "../../auth";
 const UserPage = () => {
-  const getUser = localStorage.getItem("userlogin");
-  const user = JSON.parse(getUser);
+  const { user } = isAuthenticated();
 
   return user === null ? (
     <Redirect to="/signin" />

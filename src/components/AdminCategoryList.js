@@ -1,13 +1,16 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-
+import React, { useEffect, useState } from "react";
+import { NavLink, Redirect } from "react-router-dom";
+import { isAuthenticated } from "../auth";
 const AdminCategoryList = (props) => {
   const onHandleRemove = (id) => {
     props.onDeleteCategory(id);
   };
 
+  const user = isAuthenticated();
   return (
     <div>
+      {user === false ? <Redirect to="/" /> : ""}
+
       <div className="flex flex-col">
         <NavLink
           to="/admin/category/add"
@@ -64,6 +67,7 @@ const AdminCategoryList = (props) => {
                             </NavLink>
                           </div>
                         </td>
+
                         {/* <td className="px-6 py-4 whitespace-nowrap">
                         <div className="text-sm text-gray-900">
                           {product.price}

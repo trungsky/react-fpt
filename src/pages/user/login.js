@@ -1,39 +1,49 @@
-import React from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState} from "react";
+import { useHistory, Redirect } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import toastr from "toastr";
 import UserApi from "../../api/UserApi";
+import { isAuthenticated, authenticate } from './../../auth'
 const LoginPage = () => {
+  const [redirectTo, setRedirectTo] = useState(false)
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const history = useHistory();
-
-  const onSubmit = async (data) => {
+  const { user } = isAuthenticated();
+  const onSubmit = async (res) => {
     try {
-      const emailForm = document.querySelector("#email").value;
-      const passwordForm = document.querySelector("#password").value;
-
-      if (emailForm === "" || passwordForm === "") {
-        toastr.error(`Nhập đủ thông tin vào bạn ơi`);
-      } else {
-        const { data: user } = await UserApi.signIn(data);
-        localStorage.setItem("jwt", JSON.stringify(user.token));
-        localStorage.setItem("userlogin", JSON.stringify(user.user));
-        toastr.success(`Login thành công`);
-        // Thêm cúc ki xong mới redirect => đang làm vỡ mặt
-        history.push("/user");
-      }
+        const { data } = await UserApi.signIn(res);
+        authenticate(data)
+        setRedirectTo(true)
+        // call api -> tra ve token va info
+        // save vao localStorage 
+        // set State 
+        // toastr.success(`Login thành công`);
+        // // Thêm cúc ki xong mới redirect => đang làm vỡ mặt
+        // history.push("/user");
+      
     } catch (error) {
       toastr.error(`${error.response.data.error}`);
     }
   };
+  const userRedirect = () => {
+    if(redirectTo){
+      if(user.role == 1){ 
+        return <Redirect to="/admin" />
+      } else {
+        return <Redirect to="/" />
+      }
+    }
+  }
+  // const getUser = localStorage.getItem("userlogin");
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
+        { userRedirect()}
         <div>
           <img
             className="mx-auto h-12 w-auto"

@@ -36,3 +36,42 @@
     transform: rotate(360deg);
   }
 }
+
+.toast {
+  animation: baynhay 5s ease infinite;
+  background-color: #030303;
+}
+.toast-info {
+  animation: baynhay 5s ease infinite;
+  background-color: #3276b1;
+}
+.toast-info2 {
+  animation: baynhay 5s ease infinite;
+  background-color: #2f96b4;
+}
+.toast-error {
+  animation: baynhay 5s ease infinite;
+  background-color: #bd362f;
+}
+.toast-success {
+  background-color: #51a351;
+
+  animation: baynhay 5s ease infinite;
+}
+
+.toast-warning {
+  background-color: #f89406;
+  animation: baynhay 5s ease infinite;
+}
+
+@keyframes baynhay {
+  0% {
+    background-position: 0% 82%;
+  }
+  50% {
+    background-position: 100% 19%;
+  }
+  100% {
+    background-position: 0% 82%;
+  }
+}

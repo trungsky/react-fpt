@@ -1,6 +1,6 @@
 import React from "react";
 import AdminProductList from "../../components/AdminProductList";
-const ProductPage = (props) => {
+const AdminProductPage = (props) => {
   const onHandleRemove = (id) => {
     props.onDelete(id);
   };
@@ -15,4 +15,4 @@ const ProductPage = (props) => {
     </div>
   );
 };
-export default ProductPage;
+export default AdminProductPage;
