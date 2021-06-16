@@ -1,5 +1,5 @@
 import Billing from "../models/billing";
-
+import formidable from "formidable";
 export const lists = (req, res) => {
   Billing.find((err, billing) => {
     if (err) {
@@ -12,14 +12,24 @@ export const lists = (req, res) => {
 };
 
 export const create = (req, res) => {
-  const billing = new Billing(req.body);
-  billing.save((err, data) => {
+  let form = new formidable.IncomingForm();
+  form.keepExtensions = true;
+  form.parse(req, (err, fields, files) => {
     if (err) {
       return res.status(400).json({
-        error: `Không thêm được bill ${err}`,
+        error: `Thêm không thành công ${err}`,
       });
     }
-    res.json({ data });
+
+    let bill = new Billing(fields);
+    bill.save((err, data) => {
+      if (err) {
+        res.status(400).json({
+          error: `Không thêm được - ${err}`,
+        });
+      }
+      res.json(data);
+    });
   });
 };
 

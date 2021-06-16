@@ -2,6 +2,8 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import CategoryApi from "../api/CategoryApi";
+import { isAuthenticated } from "../auth";
+import NotFoundPage from "../pages/404";
 import toastr from "toastr";
 const CategoryAdd = (props) => {
   const history = useHistory();
@@ -10,7 +12,11 @@ const CategoryAdd = (props) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-
+  const { user } = isAuthenticated();
+  if (user.role !== 1) {
+    return <NotFoundPage />;
+    console.log("alo");
+  }
   const onSubmit = async (data) => {
     try {
       const { data: newCategory } = await CategoryApi.add(data);
@@ -29,21 +35,35 @@ const CategoryAdd = (props) => {
       >
         Gô Back
       </button>
-  <div className="w-full pb-5">
-    <div className="bg-white p-10 rounded-lg shadow md:w-3/4 mx-auto lg:w-5/6">
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="w-full pb-5">
+        <div className="bg-white p-10 rounded-lg shadow md:w-3/4 mx-auto lg:w-5/6">
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="mb-5">
+              <label className="block mb-2 font-bold text-gray-600">
+                Name category
+              </label>
+              <input
+                {...register("name")}
+                className="border border-gray-300 shadow p-3 w-full rounded mb-"
+              />
+            </div>
+            <div className="mb-5">
+              <label className="block mb-2 font-bold text-gray-600">
+                Description category
+              </label>
+              <input
+                {...register("description")}
+                className="border border-gray-300 shadow p-3 w-full rounded mb-"
+              />
+            </div>
 
-        <div className="mb-5">
-          <label className="block mb-2 font-bold text-gray-600">Name category</label>
-          <input {...register("name")} className="border border-gray-300 shadow p-3 w-full rounded mb-" />
+            <button className="block w-full bg-blue-500 text-white font-bold p-4 rounded-lg">
+              Submit
+            </button>
+          </form>
         </div>
-
-        <button className="block w-full bg-blue-500 text-white font-bold p-4 rounded-lg">Submit</button>
-      </form>
+      </div>
     </div>
-    </div>
-</div>
-
   );
 
   // const [inputValue, setInputValue] = useState("");

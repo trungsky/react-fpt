@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, Redirect } from "react-router-dom";
 import { isAuthenticated } from "../auth";
+import NotFoundPage from "../pages/404";
 const AdminCategoryList = (props) => {
   const onHandleRemove = (id) => {
     props.onDeleteCategory(id);
   };
 
-  const user = isAuthenticated();
+
+  const { user } = isAuthenticated();
+  if (user.role !== 1) {
+    return <NotFoundPage />;
+  }
+
   return (
     <div>
       {user === false ? <Redirect to="/" /> : ""}
@@ -53,8 +59,8 @@ const AdminCategoryList = (props) => {
                           <div className="flex items-center">
                             <div>
                               <div className="text-sm font-medium text-gray-900">
-                                <NavLink to={`category/${cate.id}`}>
-                                  {cate.id}
+                                <NavLink to={`category/${cate._id}`}>
+                                  {cate._id}
                                 </NavLink>
                               </div>
                             </div>
@@ -62,7 +68,7 @@ const AdminCategoryList = (props) => {
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="text-sm text-gray-900">
-                            <NavLink to={`category/${cate.id}`}>
+                            <NavLink to={`category/${cate._id}`}>
                               {cate.name}
                             </NavLink>
                           </div>
@@ -89,7 +95,7 @@ const AdminCategoryList = (props) => {
 
                         <button
                           className="px-4 bg-red-400 rounded p-2 mt-1"
-                          onClick={() => onHandleRemove(cate.id)}
+                          onClick={() => onHandleRemove(cate._id)}
                         >
                           Delete
                         </button>

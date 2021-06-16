@@ -68,8 +68,3 @@ export const isAdmin = (req, res, next) => {
   }
   next();
 };
-
-export const test = (req, res, next) => {
-  res.cookie("token", 'jwt.token', { expires: new Date(Date.now() + 9999999) }); //  doan nay, ban ve client token thoi
-  // res.status(200).send({ user: '113', token: 'jwt.token' });
-};

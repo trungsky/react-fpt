@@ -5,6 +5,7 @@ import "./cart.css";
 import { useForm } from "react-hook-form";
 import { PriceFormat } from "../../components/constant";
 import BillingApi from "../../api/BillingApi";
+import { isAuthenticated } from "../../auth";
 const CheckoutPage = () => {
   const {
     register,
@@ -15,18 +16,44 @@ const CheckoutPage = () => {
   const cart = JSON.parse(localStorage.getItem("cart"));
   const total = JSON.parse(localStorage.getItem("total"));
 
-
+  const { user } = isAuthenticated();
   const onSubmit = async (res) => {
-    res.total = total;
-    res.user = null;
-    res.status = "Đặt hàng";
-    res.date = Date.now();
-    res.item = cart;
-    await BillingApi.add(res);
-    // <Redirect to="/thanks" />;
-    localStorage.removeItem('');
-    localStorage.removeItem('total');
-    window.location = "/thanks";
+    // res.total = total;
+    // res.user = null;
+    // res.status = "Đặt hàng";
+    // res.date = Date.now();
+    // res.item = cart;
+    // await BillingApi.add(res);
+    // // <Redirect to="/thanks" />;
+    // localStorage.removeItem('cart');
+    // localStorage.removeItem('total');
+    // window.location = "/thanks";
+    console.log(res);
+    if (user === undefined) {
+      res.total = total;
+      res.user = null;
+      res.status = "Đặt hàng";
+      res.date = Date.now();
+      res.item = cart;
+      const { data: req } = await BillingApi.add(res);
+      sessionStorage.setItem("billId", req._id);
+      // <Redirect to="/thanks" />;
+      localStorage.removeItem("cart");
+      localStorage.removeItem("total");
+      window.location = "/thanks";
+    } else {
+      res.total = total;
+      res.user = user._id;
+      res.status = "Đặt hàng";
+      res.date = Date.now();
+      res.item = cart;
+      const { data: req } = await BillingApi.add(res);
+      sessionStorage.setItem("billId", req._id);
+      // <Redirect to="/thanks" />;
+      localStorage.removeItem("cart");
+      localStorage.removeItem("total");
+      window.location = "/thanks";
+    }
   };
 
   return (

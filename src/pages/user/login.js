@@ -1,11 +1,11 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { useHistory, Redirect } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import toastr from "toastr";
 import UserApi from "../../api/UserApi";
-import { isAuthenticated, authenticate } from './../../auth'
+import { isAuthenticated, authenticate } from "./../../auth";
 const LoginPage = () => {
-  const [redirectTo, setRedirectTo] = useState(false)
+  const [redirectTo, setRedirectTo] = useState(false);
   const {
     register,
     handleSubmit,
@@ -14,36 +14,37 @@ const LoginPage = () => {
   const history = useHistory();
   const { user } = isAuthenticated();
   const onSubmit = async (res) => {
+    console.log(res);
     try {
-        const { data } = await UserApi.signIn(res);
-        authenticate(data)
-        setRedirectTo(true)
-        // call api -> tra ve token va info
-        // save vao localStorage 
-        // set State 
-        // toastr.success(`Login thành công`);
-        // // Thêm cúc ki xong mới redirect => đang làm vỡ mặt
-        // history.push("/user");
-      
+      const { data } = await UserApi.signIn(res);
+      authenticate(data);
+      setRedirectTo(true);
+      // call api -> tra ve token va info
+      // save vao localStorage
+      // set State
+      // toastr.success(`Login thành công`);
+      // // Thêm cúc ki xong mới redirect => đang làm vỡ mặt
+      // history.push("/user");
     } catch (error) {
       toastr.error(`${error.response.data.error}`);
     }
   };
   const userRedirect = () => {
-    if(redirectTo){
-      if(user.role == 1){ 
-        return <Redirect to="/admin" />
+    if (redirectTo) {
+      if (user.role == 1) {
+        // return <Redirect to="/admin" />;
+        window.location = "/admin";
       } else {
-        return <Redirect to="/" />
+        window.location = "/user";
       }
     }
-  }
+  };
   // const getUser = localStorage.getItem("userlogin");
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
-        { userRedirect()}
+        {userRedirect()}
         <div>
           <img
             className="mx-auto h-12 w-auto"

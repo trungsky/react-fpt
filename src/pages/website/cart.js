@@ -32,7 +32,7 @@ const CartPage = ({ onDeleteCart, carts }) => {
               <div className="row">
                 <div className="col-xl-8 offset-xl-2">
                   <p className="lead text-muted">
-                    {carts !== null ? (
+                    {carts !== null || carts.length? (
                       <span>Bạn có {carts.length} món trong cart</span>
                     ) : (
                       <h3 className="text-center my-5 text-xl font-bold">
@@ -60,7 +60,7 @@ const CartPage = ({ onDeleteCart, carts }) => {
           <div className="container">
             <div className="row mb-5">
               <div className="col-lg-8">
-                {carts === null ? (
+                {carts === null || carts.length === 0 ? (
                   ""
                 ) : (
                   <div className="cart">

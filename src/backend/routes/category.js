@@ -1,5 +1,7 @@
 import express from "express";
 const router = express.Router();
+import formidable from "formidable";
+
 import { userById } from "../controllers/user";
 import { requireSignin, isAdmin, isAuth } from "../controllers/auth";
 import {
@@ -11,12 +13,14 @@ import {
   categoryById,
 } from "../controllers/category";
 
-router.post("/category/create/:userId", requireSignin, isAuth, isAdmin, create);
+router.post("/category/create/", 
+// requireSignin, isAuth, isAdmin, 
+create);
 router.get("/category/:categoryId", read);
 router.delete("/category/:categoryId/", remove);
 // router.put("/category/:categoryId/", update);
 router.patch("/category/:categoryId/", update);
-router.get("/categories", lists);
+router.get("/category", lists);
 
 // router.param("userId", userById);
 router.param("categoryId", categoryById);

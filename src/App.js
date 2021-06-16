@@ -9,7 +9,7 @@ toastr.options = {
   newestOnTop: true,
   progressBar: true,
   // "preventDuplicates": true,
-  timeOut: "5000",
+  timeOut: "2000",
   extendedTimeOut: "2000",
 };
 function App() {
@@ -34,10 +34,10 @@ function App() {
   }, []);
 
   const removeItem = async (id) => {
-    const itemRemove = products.find((p) => p.id === id);
-    const newProducts = products.filter((products) => products.id !== id);
+    const itemRemove = products.find((p) => p._id === id);
+    const newProducts = products.filter((products) => products._id !== id);
     try {
-      await ProductApi.remove(itemRemove.id);
+      await ProductApi.remove(itemRemove._id);
       setProducts(newProducts);
       toastr.success(`Xóa thành công: "${itemRemove.name}"`);
     } catch (error) {
@@ -61,10 +61,10 @@ function App() {
   };
 
   const removeCategory = async (id) => {
-    const itemRemove = category.find((c) => c.id === id);
-    const newCategory = category.filter((category) => category.id !== id);
+    const itemRemove = category.find((c) => c._id === id);
+    const newCategory = category.filter((category) => category._id !== id);
     try {
-      await CategoryApi.remove(itemRemove.id);
+      await CategoryApi.remove(itemRemove._id);
       setCategory(newCategory);
       toastr.success(`Xóa thành công: "${itemRemove.name}"`);
     } catch (error) {

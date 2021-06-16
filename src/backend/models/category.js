@@ -8,6 +8,11 @@ const categorySchema = mongoose.Schema(
       required: true,
       maxLength: 32,
     },
+    description: {
+      type: String,
+      trim: true,
+      maxLength: 2000,
+    },
   },
   { timestamps: true, versionKey: false }
 );

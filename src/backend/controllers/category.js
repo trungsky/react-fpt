@@ -1,14 +1,31 @@
 import Category from "../models/category";
+import formidable from "formidable";
+import _ from "lodash";
 
 export const create = (req, res) => {
-  const category = new Category(req.body);
-  category.save((err, data) => {
+  let form = new formidable.IncomingForm();
+  form.keepExtensions = true;
+  form.parse(req, (err, fields, files) => {
     if (err) {
       return res.status(400).json({
-        error: `Không thêm được danh mục ${err}`,
+        error: `Thêm không thành công ${err}`,
       });
     }
-    res.json({ data });
+    const { name, description } = fields;
+    if (!name) {
+      return res.status(400).json({
+        error: "Bạn cần nhập đầy đủ thông tin",
+      });
+    }
+    let category = new Category(fields);
+    category.save((err, data) => {
+      if (err) {
+        res.status(400).json({
+          error: `Không thêm được - ${err}`,
+        });
+      }
+      res.json(data);
+    });
   });
 };
 
@@ -57,12 +74,42 @@ export const remove = (req, res) => {
 export const update = (req, res) => {
   const category = req.category;
   category.name = req.body.name;
-  category.save((err, data) => {
-    if (err || !category) {
-      res.status(400).json({
-        error: "Danh mục không tồn tại",
+  // category.name = req.body.name;
+  // category.description = req.body.description;
+  // category.save((err, data) => {
+  //   if (err || !category) {
+  //     res.status(400).json({
+  //       error: "Danh mục không tồn tại",
+  //     });
+  //   }
+  //   res.json(data);
+  // });
+
+  let form = new formidable.IncomingForm();
+  form.keepExtensions = true;
+  form.parse(req, (err, fields) => {
+    if (err) {
+      return res.status(400).json({
+        error: `Lỗi nè ${err}`,
       });
     }
-    res.json( data);
+    const { name, description } = fields;
+    if (!name) {
+      return res.status(400).json({
+        error: "Bạn cần nhập đầy đủ thông tin",
+      });
+    }
+
+    let category = req.category;
+    category = _.assignIn(category, fields);
+
+    category.save((err, data) => {
+      if (err) {
+        res.status(400).json({
+          error: `Không thêm được sản phẩm - ${err}`,
+        });
+      }
+      res.json(data);
+    });
   });
 };

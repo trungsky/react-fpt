@@ -5,7 +5,8 @@ import ProductApi from "../../api/ProductApi";
 
 import Typography from "@material-ui/core/Typography";
 import Pagination from "@material-ui/lab/Pagination";
-const ProductPage = ({ products }) => {
+
+const ProductByPage = ({ products }) => {
   const [productsState, setProductsState] = useState([]);
   let history = useHistory();
 
@@ -44,7 +45,7 @@ const ProductPage = ({ products }) => {
           <div className="flex flex-wrap w-full mb-20">
             <div className="lg:w-1/2 w-full mb-6 lg:mb-0">
               <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">
-                Pitchfork Kickstarter Taxidermy
+                Page {page}
               </h1>
             </div>
             <p className="lg:w-1/2 w-full leading-relaxed text-gray-500">
@@ -59,7 +60,7 @@ const ProductPage = ({ products }) => {
               return (
                 <div key={index} className="xl:w-1/4 md:w-1/2 p-4">
                   <div className="bg-gray-100 p-6 rounded-lg">
-                    <Link to={`/products/${product._id}`}>
+                    <Link to={`/products/${product.id}`}>
                       <img
                         className="h-60 rounded w-full object-cover object-center mb-6"
                         src={product.photo}
@@ -72,7 +73,7 @@ const ProductPage = ({ products }) => {
                       {product.category}
                     </h3> */}
                     <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
-                      <Link to={`/products/${product._id}`}>{product.name}</Link>
+                      <Link to={`/products/${product.id}`}>{product.name}</Link>
                     </h2>
                     <p className="leading-relaxed text-base">
                       Cái giá phải trả:{" "}
@@ -99,4 +100,4 @@ const ProductPage = ({ products }) => {
   );
 };
 
-export default ProductPage;
+export default ProductByPage;

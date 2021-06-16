@@ -10,12 +10,19 @@ import {
   remove,
   updateById,
   productByID,
+  listByCategory,
 } from "../controllers/product";
 
 router.get("/products", list);
 router.get("/products/:productId", findById);
-
-router.post("/products/create/:userId", requireSignin, isAuth, isAdmin, create);
+router.get("/products/category/:categoryId", listByCategory);
+router.post(
+  "/products/create/:userId",
+  requireSignin,
+  isAuth,
+  isAdmin,
+  create
+);
 router.delete(
   "/products/:productId/:userId",
   requireSignin,

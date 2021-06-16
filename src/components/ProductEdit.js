@@ -20,6 +20,7 @@ const ProductEdit = (props) => {
   } = useForm();
 
   const onSubmit = async (data) => {
+    console.log(data);
     try {
       await ProductApi.update(idProduct, data);
       const { data: products } = await ProductApi.getAll();
@@ -82,7 +83,7 @@ const ProductEdit = (props) => {
                 defaultValue={product.category}
               >
                 {props.category.map((cate) => {
-                  return <option value={cate.id}>{cate.name}</option>;
+                  return <option value={cate._id}>{cate.name}</option>;
                 })}
               </select>
             </div>
@@ -125,7 +126,7 @@ const ProductEdit = (props) => {
 
               <select
                 className="border border-gray-300 shadow p-3 w-full rounded"
-                {...register("status", { required: true })}
+                {...register("status")}
                 {...setValue("status", product.status)}
                 defaultValue={product.status}
               >

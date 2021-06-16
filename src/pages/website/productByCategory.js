@@ -14,6 +14,8 @@ const ProductByCategory = () => {
       const { data: handleProducts } = await ProductApi.getByCategory(
         idCategory
       );
+      console.log(handleProducts);
+
       setProducts(handleProducts);
     };
     const getCategory = async () => {
@@ -21,9 +23,10 @@ const ProductByCategory = () => {
       setCategory(category);
     };
 
+
     getCategory();
     getProductsByCategory();
-  }, []);
+  }, [idCategory]);
 
   return (
     <section className="text-gray-600 body-font">
@@ -43,7 +46,7 @@ const ProductByCategory = () => {
             return (
               <div key={index} className="xl:w-1/4 md:w-1/2 p-4">
                 <div className="bg-gray-100 p-6 rounded-lg">
-                  <Link to={`/products/${product.id}`}>
+                  <Link to={`/products/${product._id}`}>
                     <img
                       className="h-60 rounded w-full object-cover object-center mb-6"
                       src={product.photo}
@@ -56,7 +59,7 @@ const ProductByCategory = () => {
                {product.category}
              </h3> */}
                   <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
-                    <Link to={`/products/${product.id}`}>{product.name}</Link>
+                    <Link to={`/products/${product._id}`}>{product.name}</Link>
                   </h2>
                   <p className="leading-relaxed text-base">
                     Cái giá phải trả:{" "}

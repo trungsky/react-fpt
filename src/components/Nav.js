@@ -3,21 +3,34 @@ import { NavLink, Link } from "react-router-dom";
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
+import CategoryApi from "../api/CategoryApi";
+import { isAuthenticated } from "../auth";
 const Nav = ({ children }) => {
   const [dropdownState, setDropdownState] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
+  const [category, setCategory] = useState([]);
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
   }
-  // useEffect(() => {
-  //   const reFresh = async () => {
-  //     const getUser = await localStorage.getItem("cart");
-  //     getUser !== null ? setIsLogin(true) : setIsLogin(false);
-  //   };
 
-  //   reFresh();
+  const logout = () => {
+    localStorage.removeItem("user");
+    window.location = "/";
+  };
 
-  // }, []);
+  useEffect(() => {
+    const { user } = isAuthenticated();
+    const getCategory = async () => {
+      const { data: cate } = await CategoryApi.getAll();
+      setCategory(cate);
+    };
+
+    if (user) {
+      setIsLogin(true);
+    }
+
+    getCategory();
+  }, []);
 
   return (
     <div>
@@ -55,19 +68,11 @@ const Nav = ({ children }) => {
                     Products
                   </NavLink>
 
-                  <NavLink
-                    to="category"
-                    className="text-black-300 hover:bg-gray-200 hover:text-black px-3 py-2 rounded-md text-sm font-medium"
-                    activeClassName="bg-gray-900 text-white"
-                  >
-                    Category
-                  </NavLink>
-
-                  <Menu as="div" className="relative inline-block text-left">
+                  <Menu as="div" className="relative inline-block text-center">
                     {({ open }) => (
                       <>
                         <div>
-                          <Menu.Button className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
+                          <Menu.Button className="inline-flex justify-center w-full rounded-md px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
                             Category
                             <ChevronDownIcon
                               className="-mr-1 ml-2 h-5 w-5"
@@ -91,24 +96,26 @@ const Nav = ({ children }) => {
                             className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
                           >
                             <div className="py-1">
-                              
                               {/* Item */}
-                              <Menu.Item>
-                                {({ active }) => (
-                                  <a
-                                    href="#"
-                                    className={classNames(
-                                      active
-                                        ? "bg-gray-100 text-gray-900"
-                                        : "text-gray-700",
-                                      "block px-4 py-2 text-sm"
+                              {category.map((cate) => {
+                                return (
+                                  <Menu.Item>
+                                    {({ active }) => (
+                                      <Link
+                                        to={`/category/${cate._id}`}
+                                        className={classNames(
+                                          active
+                                            ? "bg-gray-100 text-gray-900"
+                                            : "text-gray-700",
+                                          "block px-4 py-2 text-sm"
+                                        )}
+                                      >
+                                        {cate.name}
+                                      </Link>
                                     )}
-                                  >
-                                    Item ne ne ne
-                                  </a>
-                                )}
-                              </Menu.Item>
-
+                                  </Menu.Item>
+                                );
+                              })}
 
                               {/* End item */}
                             </div>
@@ -198,15 +205,24 @@ const Nav = ({ children }) => {
                         >
                           Settings
                         </a>
-                        <a
-                          href="#"
+                        <Link
+                          to="/cart"
+                          className="block px-4 py-2 text-sm text-gray-700"
+                          role="menuitem"
+                          tabIndex={-1}
+                          id="user-menu-item-0"
+                        >
+                          Cart
+                        </Link>
+                        <button
                           className="block px-4 py-2 text-sm text-gray-700"
                           role="menuitem"
                           tabIndex={-1}
                           id="user-menu-item-2"
+                          onClick={logout}
                         >
                           Sign out
-                        </a>
+                        </button>
                       </div>
                     ) : (
                       ""
@@ -215,6 +231,7 @@ const Nav = ({ children }) => {
                 )}
               </div>
             </div>
+
             <div className="-mr-2 flex md:hidden">
               {/* Mobile menu button */}
               <button

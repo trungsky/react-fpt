@@ -7,18 +7,19 @@ import {
 import { useForm } from "react-hook-form";
 import CategoryApi from "../api/CategoryApi";
 import toastr from "toastr";
-
+import { isAuthenticated } from "../auth";
+import NotFoundPage from "../pages/404";
 const CategoryEdit = (props) => {
   const { idCategory } = useParams();
   const [category, setCategory] = useState([]);
   const history = useHistory();
+
   const {
     register,
     handleSubmit,
     setValue,
     formState: { errors },
   } = useForm();
-
 
   const onSubmit = async (data) => {
     try {
@@ -40,7 +41,11 @@ const CategoryEdit = (props) => {
 
     getCategory();
   }, []);
-
+  const { user } = isAuthenticated();
+  if (user.role !== 1) {
+    return <NotFoundPage />;
+    console.log("alo");
+  }
   return (
     <div>
       <button
@@ -55,7 +60,19 @@ const CategoryEdit = (props) => {
             <div className="mb-5">
               <label className="block mb-2 font-bold text-gray-600">Name</label>
               <input
-                {...register("name")} {...setValue("name", category.name)} defaultValue={category.name}
+                {...register("name")}
+                {...setValue("name", category.name)}
+                defaultValue={category.name}
+                className="border border-gray-300 shadow p-3 w-full rounded mb-"
+              />
+            </div>
+
+            <div className="mb-5">
+              <label className="block mb-2 font-bold text-gray-600">Description</label>
+              <input
+                {...register("description")}
+                {...setValue("description", category.description)}
+                defaultValue={category.description}
                 className="border border-gray-300 shadow p-3 w-full rounded mb-"
               />
             </div>

@@ -120,7 +120,7 @@ const ProductDetail = (props) => {
                 <div className="h-64 md:h-80 rounded-lg bg-gray-100 mb-4 flex items-center justify-center">
                   <img
                     src={products.photo}
-                    className="h-64 w-full rounded md:h-80"
+                    className="h-264 w-full rounded md:h-80"
                     alt={products.name}
                   />
                 </div>
@@ -131,7 +131,7 @@ const ProductDetail = (props) => {
               <form onSubmit={handleSubmit(addToCart)}>
                 <input
                   {...register("id")}
-                  {...setValue("id", products.id)}
+                  {...setValue("id", products._id)}
                   hidden
                 />
 
@@ -153,7 +153,7 @@ const ProductDetail = (props) => {
                   By{" "}
                   <Link
                     className="hover:no-underline"
-                    to={`/category/${category.id}`}
+                    to={`/category/${category._id}`}
                   >
                     {category.name}
                   </Link>
@@ -189,12 +189,6 @@ const ProductDetail = (props) => {
                   <input
                     {...register("quantity")}
                     {...setValue("quantity", 1)}
-                    hidden
-                  />
-
-                  <input
-                    {...register("category")}
-                    {...setValue("category", Number(products.category))}
                     hidden
                   />
                 </div>
@@ -234,7 +228,7 @@ const ProductDetail = (props) => {
               ></div>
               <div className="w-2/3 p-4">
                 <h1 className="text-gray-900 font-bold text-2xl">
-                  <Link to={`/products/${product.id}`}>{product.name}</Link>
+                  <Link to={`/products/${product._id}`}>{product.name}</Link>
                 </h1>
                 <p className="mt-2 text-gray-600 text-sm min-w-[500px]">
                   {product.description}

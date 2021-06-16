@@ -55,13 +55,23 @@ export const findById = async (req, res) => {
     });
 };
 
+export const listByCategory = async (req, res) => {
+  const product = await Product.find({ category: req.params.categoryId })
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res.send("Không có nhé");
+    });
+};
+
 export const remove = async (req, res) => {
   Product.deleteOne({ _id: req.params.productId })
     .then((data) => {
       res.json(`Xóa ô kê`);
     })
     .catch((err) => {
-      err;
+      res.json(err);
     });
 };
 

@@ -1,61 +1,254 @@
 {
   "products": [
     {
-      "id": 4,
-      "name": "LOGO WASHED HOODIE - BLACK/PINK",
-      "price": "699000",
-      "quantity": "50",
-      "status": "false",
-      "category": 2,
-      "photo": "https://firebasestorage.googleapis.com/v0/b/upload-imagess.appspot.com/o/images%2Fswe_20421_1__b853a76c90724db1bcdcfa8b776b325a_master.webp?alt=media&token=482883fa-bb54-4f7a-a1d7-9fbabbf937ef",
-      "description": "<p><strong>MỌi người ơi</strong></p>"
-    },
-    {
-      "id": 5,
-      "name": "LOGO WASHED HOODIE - BLACK/PINK",
-      "price": "599000",
-      "quantity": "50",
-      "status": "false",
-      "category": 2,
-      "photo": "https://firebasestorage.googleapis.com/v0/b/upload-imagess.appspot.com/o/images%2Fswe_20421_1__b853a76c90724db1bcdcfa8b776b325a_master.webp?alt=media&token=482883fa-bb54-4f7a-a1d7-9fbabbf937ef",
-      "description": "<p><strong>xax</strong></p>"
-    },
-    {
-      "id": 6,
-      "name": "TRICOLOR JACKET - SILVER",
-      "price": "560000",
-      "quantity": 2,
-      "status": "false",
-      "category": "1",
-      "photo": "https://firebasestorage.googleapis.com/v0/b/upload-imagess.appspot.com/o/images%2F18-te9512-tx01-1_0d77add3e4d24b72ac0ad55249206917_master.webp?alt=media&token=a3ea46fd-6a2d-4599-b74b-8a1905767624",
-      "description": "312312"
-    },
-    {
-      "id": 7,
-      "name": "BASIC SWEATPANTS - CREAM",
-      "price": "449000",
-      "quantity": "10",
-      "status": "false",
-      "category": "3",
-      "photo": "https://firebasestorage.googleapis.com/v0/b/upload-imagess.appspot.com/o/images%2F_nio0990_f019eff6fbac41ab811d6c422b5e73c0_master.webp?alt=media&token=592c6907-a2f8-4b0e-8425-4fc5a98014b7"
-    },
-    {
       "id": 8,
-      "name": "SWE SPIRAL TIE DYE (UV) SHORTS - BLUE",
-      "price": "400000",
-      "quantity": "20",
-      "status": "false",
-      "category": "3",
-      "photo": "https://firebasestorage.googleapis.com/v0/b/upload-imagess.appspot.com/o/images%2F1-te8102-tx01-1_29692d3a92d84b2882c26d43470a7b02_master.webp?alt=media&token=0c7e80a5-5ce2-48ca-88ac-69b8cf944e14"
+      "name": "Car",
+      "price": "179.00",
+      "quantity": 46,
+      "status": true,
+      "photo": "https://cdn.fakercloud.com/avatars/adamnac_128.jpg",
+      "category": 3,
+      "description": "Odit veritatis libero ut nihil similique illo saepe dolor. Molestiae rerum quia consequuntur voluptas. Tempora ut maxime sequi numquam minus doloribus unde. In facere sunt vel voluptate officia sed dolore impedit rerum."
+    },
+    {
+      "id": 9,
+      "name": "Cheese",
+      "price": "358.00",
+      "quantity": 13,
+      "status": true,
+      "photo": "https://cdn.fakercloud.com/avatars/nelshd_128.jpg",
+      "category": 4,
+      "description": "Voluptatem minima laborum quibusdam delectus non sed aut qui totam. Labore aliquam quaerat temporibus consequatur id. Ad quaerat voluptate accusantium architecto dolor culpa et odio."
     },
     {
       "id": 10,
-      "name": "SOCCER JERSEY - BLACK/ORANGE",
-      "price": "50000",
-      "quantity": "100",
-      "status": "false",
+      "name": "Car",
+      "price": "533.00",
+      "quantity": 50,
+      "status": true,
+      "photo": "https://cdn.fakercloud.com/avatars/rez___a_128.jpg",
+      "category": 4,
+      "description": "Molestias ea earum nihil eos. Sed necessitatibus officiis ab eos perferendis. Distinctio eius consectetur inventore quisquam provident consequatur. Qui ut numquam ipsa consequatur velit asperiores vitae dolores. Est ut illo placeat excepturi. Sit eveniet cupiditate accusamus id qui et rerum."
+    },
+    {
+      "id": 11,
+      "name": "Shoes",
+      "price": "468.00",
+      "quantity": 18,
+      "status": false,
+      "photo": "https://cdn.fakercloud.com/avatars/bu7921_128.jpg",
+      "category": 3,
+      "description": "Assumenda soluta quis ullam consectetur amet. Ipsum commodi atque. Accusantium aliquam sit. Itaque fugiat tempore nesciunt nulla rerum veritatis. Quos nam sed culpa expedita."
+    },
+    {
+      "id": 12,
+      "name": "Chicken",
+      "price": "94.00",
+      "quantity": 82,
+      "status": false,
+      "photo": "https://cdn.fakercloud.com/avatars/tonymillion_128.jpg",
+      "category": 3,
+      "description": "Cupiditate labore quidem ut omnis et facere. Fuga optio placeat at. Culpa odit qui eaque placeat aliquid. Assumenda labore aut dolor est rem quia est. Ex aut nemo dolore."
+    },
+    {
+      "id": 13,
+      "name": "Salad",
+      "price": "766.00",
+      "quantity": 42,
+      "status": false,
+      "photo": "https://cdn.fakercloud.com/avatars/salleedesign_128.jpg",
       "category": 2,
-      "photo": "https://firebasestorage.googleapis.com/v0/b/upload-imagess.appspot.com/o/images%2Ff_e5c42801a298442eb6aad705b4c9d65b_master.webp?alt=media&token=bbab2dc9-ca25-4fd1-95b6-b5b52b9b9443"
+      "description": "Officia fugit amet ratione odio nemo labore quasi aut. Ut commodi nobis vero rerum sed nisi. Qui aut non id rerum. Quasi necessitatibus voluptatibus temporibus. A ex et rerum est vitae molestias necessitatibus. Sed perspiciatis est illo est."
+    },
+    {
+      "id": 29,
+      "name": "Computer",
+      "price": "729.00",
+      "quantity": 100,
+      "status": true,
+      "photo": "https://cdn.fakercloud.com/avatars/reabo101_128.jpg",
+      "category": 2,
+      "description": "Accusamus esse sunt temporibus excepturi. Quidem ut vel est nulla fuga ipsa sunt. Dolores et similique eaque quia veniam qui ut. Dolorum quaerat sed."
+    },
+    {
+      "id": 62,
+      "name": "Shirt",
+      "price": "854.00",
+      "quantity": 95,
+      "status": false,
+      "photo": "https://cdn.fakercloud.com/avatars/vovkasolovev_128.jpg",
+      "category": 3,
+      "description": "Laboriosam autem vero error pariatur deserunt voluptatum voluptate. Distinctio eos et ipsum. Non illo veniam dolorem rerum tenetur sunt voluptatibus assumenda officia. Esse illum laudantium illo quibusdam id voluptatum consequatur. Quod et natus sed similique quo culpa. Quam eveniet delectus blanditiis aut itaque corrupti beatae."
+    },
+    {
+      "id": 63,
+      "name": "Pizza",
+      "price": "743.00",
+      "quantity": 67,
+      "status": false,
+      "photo": "https://cdn.fakercloud.com/avatars/ffbel_128.jpg",
+      "category": 2,
+      "description": "Recusandae dignissimos et voluptatem. Dignissimos voluptates officiis cumque laboriosam sit. Soluta sunt reprehenderit est et rerum voluptate eum. Rerum quo atque aut omnis omnis. Sit est non labore eveniet non error."
+    },
+    {
+      "id": 64,
+      "name": "Chicken",
+      "price": "355.00",
+      "quantity": 37,
+      "status": false,
+      "photo": "https://cdn.fakercloud.com/avatars/brunodesign1206_128.jpg",
+      "category": 1,
+      "description": "Velit rem fugit inventore voluptatem. Atque optio est vel. Repellendus placeat et earum voluptas dolor iusto quaerat."
+    },
+    {
+      "id": 65,
+      "name": "Chicken",
+      "price": "348.00",
+      "quantity": 3,
+      "status": false,
+      "photo": "https://cdn.fakercloud.com/avatars/webtanya_128.jpg",
+      "category": 3,
+      "description": "Est quos quisquam aliquam dicta aut quos. Facere et recusandae in vero. Cumque nobis qui enim et rerum magnam sequi. Explicabo accusamus itaque ut quia omnis voluptatem. Impedit aut ipsam pariatur animi. Omnis sapiente ea in sunt alias alias fuga dolores."
+    },
+    {
+      "id": 66,
+      "name": "Sausages",
+      "price": "87.00",
+      "quantity": 62,
+      "status": false,
+      "photo": "https://cdn.fakercloud.com/avatars/overcloacked_128.jpg",
+      "category": 4,
+      "description": "Aperiam porro sunt eius eos ea animi autem est delectus. Ab expedita ab consequatur. Quia quia debitis dolores aperiam impedit."
+    },
+    {
+      "id": 67,
+      "name": "Fish",
+      "price": "352.00",
+      "quantity": 68,
+      "status": true,
+      "photo": "https://cdn.fakercloud.com/avatars/mactopus_128.jpg",
+      "category": 2,
+      "description": "Totam qui consectetur nihil occaecati ratione. Exercitationem esse qui est sint est nisi in. Et et vitae officia voluptates ad ut aut recusandae. Quis distinctio optio qui voluptatibus repudiandae eos eligendi. Id et iste amet sed enim dolorum ullam repudiandae."
+    },
+    {
+      "id": 68,
+      "name": "Towels",
+      "price": "242.00",
+      "quantity": 70,
+      "status": true,
+      "photo": "https://cdn.fakercloud.com/avatars/klefue_128.jpg",
+      "category": 3,
+      "description": "Ut reprehenderit nesciunt dolorem debitis deleniti totam necessitatibus velit. Numquam sed nostrum et ut vel nihil beatae iusto. Distinctio voluptas et quod molestiae. Cupiditate non corporis numquam a quidem aut rerum molestiae. Suscipit corporis commodi illo ipsum velit est. Sit suscipit illo neque ex est est et et vel."
+    },
+    {
+      "id": 69,
+      "name": "Mouse",
+      "price": "740.00",
+      "quantity": 15,
+      "status": true,
+      "photo": "https://cdn.fakercloud.com/avatars/macxim_128.jpg",
+      "category": 1,
+      "description": "Et et modi vel est fuga distinctio optio distinctio unde. Autem sapiente sequi aut ut. Eum ut similique laborum quod dolor. Voluptatem qui ut numquam. Dolor unde officiis id quia eius et debitis facilis esse."
+    },
+    {
+      "id": 70,
+      "name": "Salad",
+      "price": "943.00",
+      "quantity": 65,
+      "status": false,
+      "photo": "https://cdn.fakercloud.com/avatars/hellofeverrrr_128.jpg",
+      "category": 4,
+      "description": "Voluptatem saepe eveniet voluptas laudantium debitis cupiditate modi consequatur natus. Velit laudantium qui consequatur. Tempore eveniet quo necessitatibus aliquam a in perferendis earum vel. Esse et non explicabo hic pariatur quas tenetur officia optio. Officia error doloribus sit deserunt enim. Itaque sequi in nisi."
+    },
+    {
+      "id": 71,
+      "name": "Fish",
+      "price": "115.00",
+      "quantity": 5,
+      "status": true,
+      "photo": "https://cdn.fakercloud.com/avatars/canapud_128.jpg",
+      "category": 1,
+      "description": "Nam quod ipsa ut velit. Dolore earum deleniti commodi molestiae sint qui nulla accusantium ut. Omnis ducimus voluptate illum vero delectus at ut."
+    },
+    {
+      "id": 72,
+      "name": "Shirt",
+      "price": "524.00",
+      "quantity": 50,
+      "status": false,
+      "photo": "https://cdn.fakercloud.com/avatars/allfordesign_128.jpg",
+      "category": 1,
+      "description": "Quia deleniti voluptatem explicabo natus quisquam tenetur alias. Beatae repudiandae aut dicta consequatur occaecati. Qui voluptatem porro accusamus hic rerum accusantium. Distinctio qui ipsam doloremque omnis molestiae facilis odio quibusdam beatae. Iste quis minima id vel est ipsam."
+    },
+    {
+      "id": 73,
+      "name": "Tuna",
+      "price": "614.00",
+      "quantity": 45,
+      "status": true,
+      "photo": "https://cdn.fakercloud.com/avatars/vikasvinfotech_128.jpg",
+      "category": 2,
+      "description": "Esse iste ad omnis. Consectetur architecto pariatur occaecati pariatur provident alias aut. Itaque eum dolores earum libero nulla non."
+    },
+    {
+      "id": 74,
+      "name": "Fish",
+      "price": "999.00",
+      "quantity": 37,
+      "status": false,
+      "photo": "https://cdn.fakercloud.com/avatars/bargaorobalo_128.jpg",
+      "category": 1,
+      "description": "Dolores nobis tempore et soluta. Quos voluptas sit neque non. Consectetur et est porro iusto blanditiis. Sit saepe sed qui earum assumenda possimus."
+    },
+    {
+      "id": 75,
+      "name": "Fish",
+      "price": "325.00",
+      "quantity": 28,
+      "status": true,
+      "photo": "https://cdn.fakercloud.com/avatars/alecarpentier_128.jpg",
+      "category": 4,
+      "description": "Doloremque aut totam iure ad tempora modi. Necessitatibus quisquam deleniti. Consequatur nihil et temporibus possimus veritatis ratione. Minus animi ut eveniet doloremque qui. Voluptatum et totam ut provident incidunt. Quisquam ipsum voluptatem et aut rerum."
+    },
+    {
+      "id": 76,
+      "name": "Table",
+      "price": "605.00",
+      "quantity": 10,
+      "status": false,
+      "photo": "https://cdn.fakercloud.com/avatars/clubb3rry_128.jpg",
+      "category": 4,
+      "description": "Quisquam dolor optio cumque accusamus. Reiciendis iure ut sed. Quo et qui iste doloremque perferendis porro. Maxime quod quos vitae sed ducimus omnis. Recusandae ratione sapiente in. Fugit distinctio exercitationem facilis libero omnis id quia."
+    },
+    {
+      "id": 77,
+      "name": "Chicken",
+      "price": "215.00",
+      "quantity": 70,
+      "status": true,
+      "photo": "https://cdn.fakercloud.com/avatars/tgerken_128.jpg",
+      "category": 3,
+      "description": "Quia voluptatem ipsa voluptas et itaque molestiae distinctio sequi sunt. Pariatur aut nostrum. Iste corporis consequatur sed maxime et nesciunt delectus."
+    },
+    {
+      "id": 78,
+      "name": "Cheese",
+      "price": "161.00",
+      "quantity": 60,
+      "status": true,
+      "photo": "https://cdn.fakercloud.com/avatars/wearesavas_128.jpg",
+      "category": 2,
+      "description": "In autem vel repellendus est nihil veniam non libero quos. Ut aut qui sed omnis odit quos sunt. Consequatur aut voluptas quidem quo est."
+    },
+    {
+      "id": 79,
+      "name": "Mouse",
+      "price": "428.00",
+      "quantity": 4,
+      "status": true,
+      "photo": "https://cdn.fakercloud.com/avatars/notbadart_128.jpg",
+      "category": 4,
+      "description": "Dignissimos nemo aut repudiandae eos suscipit. Non est aut eos voluptatem impedit quia sunt sunt aliquam. Eos cum officia sint tenetur nam illo debitis. Dicta quia et velit qui voluptas."
     }
   ],
   "category": [
@@ -85,7 +278,7 @@
       "email": "121",
       "phone": "12",
       "status": "Đặt hàng",
-      "user": "null"
+      "user": "60c4d5b6cf9aaf4f4f4bbca6"
     },
     {
       "fullname": "Trung Bui",
@@ -96,7 +289,7 @@
       "state": "quang ninh",
       "phone": "0377132111",
       "total": 2766000,
-      "user": null,
+      "user": "60c4d5b6cf9aaf4f4f4bbca6",
       "status": "Đặt hàng",
       "date": 1623593892432,
       "item": [
@@ -1318,6 +1511,102 @@
         }
       ],
       "id": 50
+    },
+    {
+      "fullname": "dasasd",
+      "email": "sadasd",
+      "street": "asdas",
+      "city": "asdsadsad",
+      "postcode": "dasd",
+      "state": "asdas",
+      "phone": "asdas",
+      "total": 35909,
+      "user": null,
+      "status": "Đặt hàng",
+      "date": 1623768802991,
+      "item": [
+        {
+          "id": 2,
+          "photo": "https://cdn.fakercloud.com/avatars/deviljho__128.jpg",
+          "name": "Computer",
+          "category": 3,
+          "price": "101.00",
+          "quantity": 9
+        }
+      ],
+      "id": 51
+    },
+    {
+      "fullname": "",
+      "email": "",
+      "street": "",
+      "city": "",
+      "postcode": "",
+      "state": "",
+      "phone": "",
+      "total": 35909,
+      "user": null,
+      "status": "Đặt hàng",
+      "date": 1623768824598,
+      "item": [
+        {
+          "id": 2,
+          "photo": "https://cdn.fakercloud.com/avatars/deviljho__128.jpg",
+          "name": "Computer",
+          "category": 3,
+          "price": "101.00",
+          "quantity": 9
+        }
+      ],
+      "id": 52
+    },
+    {
+      "fullname": "",
+      "email": "",
+      "street": "",
+      "city": "",
+      "postcode": "",
+      "state": "",
+      "phone": "",
+      "total": null,
+      "user": null,
+      "status": "Đặt hàng",
+      "date": 1623768843317,
+      "item": [
+        {
+          "id": 2,
+          "photo": "https://cdn.fakercloud.com/avatars/deviljho__128.jpg",
+          "name": "Computer",
+          "category": 3,
+          "price": "101.00",
+          "quantity": 9
+        }
+      ],
+      "id": 53
+    },
+    {
+      "fullname": "",
+      "email": "",
+      "street": "",
+      "city": "",
+      "postcode": "",
+      "state": "",
+      "phone": "",
+      "total": 35303,
+      "user": null,
+      "status": "Đặt hàng",
+      "date": 1623768858375,
+      "item": [
+        {
+          "id": 2,
+          "photo": "https://cdn.fakercloud.com/avatars/deviljho__128.jpg",
+          "name": "Computer",
+          "category": 3,
+          "price": "101.00",
+          "quantity": 3
+        }
+      ],
+      "id": 54
     }
   ],
   "contact": [

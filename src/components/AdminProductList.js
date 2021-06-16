@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, Redirect } from "react-router-dom";
 import { isAuthenticated } from "../auth";
+import { PriceFormat } from "./constant";
 const AdminProductList = (props) => {
   const onHandleRemove = (id) => {
     props.onDelete(id);
@@ -67,7 +68,7 @@ const AdminProductList = (props) => {
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="flex items-center">
                             <div className="flex-shrink-0 h-10 w-10">
-                              <NavLink to={`products/${product.id}`}>
+                              <NavLink to={`products/${product._id}`}>
                                 <img
                                   className="h-10 w-10 rounded-full"
                                   src={product.photo}
@@ -77,7 +78,7 @@ const AdminProductList = (props) => {
                             </div>
                             <div className="ml-4">
                               <div className="text-sm font-medium text-gray-900">
-                                <NavLink to={`products/${product.id}`}>
+                                <NavLink to={`products/${product._id}`}>
                                   {product.name}
                                 </NavLink>
                               </div>
@@ -86,7 +87,7 @@ const AdminProductList = (props) => {
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="text-sm text-gray-900">
-                            {product.price}
+                            {PriceFormat(product.price)}
                           </div>
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
@@ -105,7 +106,7 @@ const AdminProductList = (props) => {
 
                         <button
                           className="px-4 bg-red-400 rounded ml-5 mt-4 p-2"
-                          onClick={() => onHandleRemove(product.id)}
+                          onClick={() => onHandleRemove(product._id)}
                         >
                           Delete
                         </button>

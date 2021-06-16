@@ -24,10 +24,12 @@ import RegisterPage from "./pages/user/register";
 import UserPage from "./pages/user/user";
 import TestPage from "./pages/website/test";
 import ProductPage from "./pages/website/ProductPage";
+import ProductByPage from "./pages/website/ProductByPage";
 import CartPage from "./pages/website/cart";
 import CheckoutPage from "./pages/website/checkout";
 import ConfirmPage from "./pages/website/confirm";
 import ProductByCategory from "./pages/website/productByCategory";
+import BillPage from "./pages/website/bill";
 const Routes = (props) => {
   return (
     <Router>
@@ -36,7 +38,7 @@ const Routes = (props) => {
           <LayoutAdmin>
             <Switch>
               <Route exact path="/admin">
-                Admin
+                Hello Admin !
               </Route>
               <Route exact path="/admin/products">
                 <AdminProductPage {...props} />
@@ -74,6 +76,11 @@ const Routes = (props) => {
               <Route exact path="/products">
                 <ProductPage {...props} />
               </Route>
+
+              <Route exact path="/products/page/:page">
+                <ProductByPage {...props} />
+              </Route>
+
               <Route exact path="/products/:idProduct">
                 <ProductDetail {...props} />
               </Route>
@@ -103,6 +110,10 @@ const Routes = (props) => {
               </Route>
               <Route exact path="/thanks">
                 <ConfirmPage {...props} />
+              </Route>
+
+              <Route exact path="/bill/:idBill">
+                <BillPage {...props} />
               </Route>
 
               <Route exact path="/category/:idCategory">

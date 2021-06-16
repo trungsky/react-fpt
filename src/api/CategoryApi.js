@@ -10,7 +10,7 @@ const CategoryApi = {
     return axiosClient.get(url);
   },
   add(category) {
-    const url = `/category`;
+    const url = `/category/create`;
     return axiosClient.post(url, category);
   },
   remove(id) {
