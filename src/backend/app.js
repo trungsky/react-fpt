@@ -21,7 +21,7 @@ app.use(cors({ credentials: "same-origin" }));
 app.use(cookieParser());
 app.use(expressValidator());
 
-// app.use(express.json());
+app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // Only login, banner, category
 
